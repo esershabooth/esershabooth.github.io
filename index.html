@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- First Part: Shabooth Survey -->
+<div id="surveyPart1">
+  <h2>Shabooth Survey!</h2>
+  <label for="name">Enter your name:</label>
+  <input type="text" id="name" />
+  <button onclick="onSurveyButtonClicked()">Done!</button>
+</div>
+
+<!-- Second Part: Are You Ready? -->
+<div id="surveyPart2" style="display: none;">
+  <h2>Are you ready? Type 'yes'</h2>
+  <input type="text" id="readyInput" />
+  <button onclick="onReadyButtonClicked()">Proceed</button>
+</div>
+
+<!-- Third Part: New Survey -->
+<div id="surveyPart3" style="display: none;">
+  <h2>Welcome to the Third Part!</h2>
+  <label for="color">Enter your favorite color:</label>
+  <input type="text" id="color" />
+  <button onclick="onColorButtonClicked()">Done!</button>
+</div>
+
+<script>
+  function onSurveyButtonClicked() {
+    var name = document.getElementById('name').value;
+    alert('Survey Completed!\nHello, ' + name + '!');
+    document.getElementById('surveyPart1').style.display = 'none';
+    document.getElementById('surveyPart2').style.display = 'block';
+  }
+
+  function onReadyButtonClicked() {
+    var userResponse = document.getElementById('readyInput').value;
+    if (userResponse.toLowerCase() === 'yes') {
+      alert('Proceeding to the Third Part...');
+      document.getElementById('surveyPart2').style.display = 'none';
+      document.getElementById('surveyPart3').style.display = 'block';
+    } else {
+      alert('Please type "yes" to proceed.');
+    }
+  }
+
+  function onColorButtonClicked() {
+    var favoriteColor = document.getElementById('color').value;
+    alert('Color Survey Completed!\nYour favorite color is ' + favoriteColor + '!');
+    document.getElementById('surveyPart3').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
